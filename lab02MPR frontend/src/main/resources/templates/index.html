@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dogs</title>
+    <link rel="stylesheet" type="text/css" href="indexStyle.css">
+</head>
+<body>
+<H1>Dogs:</H1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Breed</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="dog : ${dog}">
+            <td th:text="${dog.id}"></td>
+            <td th:text="${dog.name}"></td>
+            <td th:text="${dog.breed}"></td>
+            <td>
+                <a th:href="@{'/editDog/' + ${dog.id}}">Edit</a>
+                <a th:href="@{/deleteDog/{id}(id=${dog.id})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/addDog}">Add Dog</a>
+</body>
+</html>

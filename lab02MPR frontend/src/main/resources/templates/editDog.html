@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dog</title>
+    <link rel="stylesheet" type="text/css" href="formStyle.css">
+</head>
+<body>
+<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+<h1>Edit Dog</h1>
+<form action="#" th:object="${dog}" th:action="@{/editDog}" method="POST">
+    <input th:field="*{id}" type="hidden" name="id">
+    <div>
+        <label>Name</label>
+        <input th:field="*{name}" type="input" name="name" id="name" th:value="*{name}" required>
+    </div>
+    <div>
+        <label>Breed</label>
+        <input th:field="*{breed}" type="input" name="breed" id="breed" th:value="*{breed}" required>
+    </div>
+    <button type="submit" id="submit">Save</button>
+</form>
+</body>
+</html>
